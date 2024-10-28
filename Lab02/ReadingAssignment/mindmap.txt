@@ -1,0 +1,42 @@
+----- Access Methods (Getter và Setter) - Khi Nên và Không Nên Sử Dụng -----
+            |
+            |
+            ------> Khi Nên Sử Dụng Getter và Setter
+            |         |
+            |         ------> Giao Tiếp với Hệ Thống Bên Ngoài (Boundary APIs)
+            |         |         |
+            |         |         ------> Khi tương tác với hệ thống thủ tục như hệ điều hành hoặc cơ sở dữ liệu
+            |         |         ------> Cần tính linh hoạt vì không biết trước sẽ được sử dụng thế nào
+            |         |
+            |         ------> Trả Về Một Giao Diện (Interface) Thay vì Dữ Liệu Thô
+            |         |         |
+            |         |         ------> Phương thức trả về đối tượng thông qua giao diện để bảo vệ chi tiết nội bộ
+            |         |
+            |         ------> Thuộc Tính Đơn Giản Không Ảnh Hưởng Đến Logic Nội Bộ
+            |                   |
+            |                   ------> Getter/setter cho thuộc tính đơn giản không làm ảnh hưởng đến trạng thái đối tượng
+            |
+            ------> Khi Không Nên Sử Dụng Getter và Setter
+            |         |
+            |         ------> Khi Gây Ảnh Hưởng Đến Tính Đóng Gói và Trừu Tượng Dữ Liệu
+            |         |         |
+            |         |         ------> Getter/setter làm lộ chi tiết thực hiện, ảnh hưởng đến tính bảo mật của lớp
+            |         |
+            |         ------> Khi Gây Khó Khăn Cho Bảo Trì Mã
+            |         |         |
+            |         |         ------> Việc thay đổi loại dữ liệu của thuộc tính yêu cầu cập nhật nhiều mã
+            |         |
+            |         ------> Khi Có Thể Thay Thế Bằng Hành Vi Cụ Thể
+            |         |         |
+            |         |         ------> Thay vì yêu cầu giá trị, cho đối tượng tự thực hiện hành vi cần thiết
+            |         |         ------> Ví dụ: dùng `drawYourself()` thay vì `getAttribute()` để biểu diễn đối tượng trong UI
+            |         |
+            |         ------> Khi Getter/Setter Làm Mã Thiếu Định Hướng Rõ Ràng
+            |                   |
+            |                   ------> Thiết kế thiếu mục đích rõ ràng sẽ làm mã quá linh hoạt hoặc phức tạp
+            |                   ------> Ưu tiên xây dựng phương thức cụ thể cho chức năng thay vì chỉ cung cấp quyền truy cập dữ liệu
+            |
+            ------> Tổng Kết
+                      |
+                      ------> Getter/setter chỉ nên sử dụng khi thực sự cần thiết
+                      ------> Ưu tiên giữ trách nhiệm rõ ràng cho các đối tượng để mã dễ bảo trì và tuân thủ nguyên tắc OO
