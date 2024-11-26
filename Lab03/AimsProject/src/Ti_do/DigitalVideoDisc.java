@@ -48,6 +48,17 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 		this.id = ++nbDigitalVideoDiscs; // Update class variable and assign id
 	}
+	// Add toString() method to format DVD details
+	@Override
+	public String toString() {
+		return "DVD - [" + title + "] - [" + category + "] - [" + director + "] - [" + length + "]: " + cost + " $";
+	}
+
+	// Method to check if the title matches (case-insensitive)
+	public boolean isMatch(String title) {
+		return this.title.equalsIgnoreCase(title);
+	}
+
 
 
 	// Các phương thức lấy dữ liệu của đĩa DVD
