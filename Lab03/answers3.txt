@@ -1,0 +1,73 @@
+
+1. Mục 2: Method Overloading
+Câu hỏi: Bạn thích sử dụng cách nào hơn giữa array và varargs? Vì sao?
+- Trả lời:
+  Tôi thích sử dụng varargs hơn vì:
+  - varargs cung cấp cú pháp ngắn gọn và dễ đọc hơn so với mảng.
+  - Khi sử dụng varargs, tôi có thể truyền bất kỳ số lượng tham số nào mà không cần tạo trước mảng.
+  - Nó phù hợp hơn khi không rõ số lượng tham số cần truyền vào phương thức.
+
+2. Mục 3: Parameter Passing
+Câu hỏi 1: Vì sao sau khi gọi swap, tiêu đề của hai đối tượng không thay đổi?
+- Trả lời:
+  Trong Java, tham số được truyền vào phương thức là bản sao (copy) của giá trị tham chiếu (reference). 
+  Trong phương thức swap, các tham số là bản sao của các tham chiếu, vì vậy thay đổi trong swap không 
+  ảnh hưởng đến các đối tượng gốc.
+
+Câu hỏi 2: Vì sao tiêu đề của JungleDVD thay đổi sau khi gọi changeTitle?
+- Trả lời:
+  Khi gọi phương thức changeTitle, chúng ta truy cập trực tiếp vào đối tượng thông qua tham chiếu. 
+  Vì vậy, các thay đổi đối với tiêu đề (title) được thực hiện trực tiếp trên đối tượng gốc.
+
+Kết luận:
+Java sử dụng pass-by-value:
+- Khi truyền một tham chiếu, giá trị của tham chiếu được sao chép, nhưng tham chiếu đó vẫn trỏ đến cùng một đối tượng.
+
+3. Mục 5: Classifier Member và Instance Member
+Câu hỏi: Sự khác biệt giữa Class Member và Instance Member là gì?
+- Trả lời:
+  - Class Member:
+    - Thuộc về lớp (class) và được chia sẻ bởi tất cả các đối tượng của lớp đó.
+    - Được khai báo với từ khóa static.
+    - Ví dụ: nbDigitalVideoDiscs trong lớp DigitalVideoDisc.
+  - Instance Member:
+    - Thuộc về từng đối tượng cụ thể.
+    - Không được khai báo với từ khóa static.
+    - Ví dụ: title, category trong lớp DigitalVideoDisc.
+
+4. Mục 6: Debugging
+Câu hỏi 1: Bạn đã thay đổi giá trị của biến trong khi chạy Debug như thế nào?
+- Trả lời:
+  Tôi đã thay đổi giá trị của biến bằng cách:
+  - Sử dụng công cụ Debug trong IDE (như Eclipse hoặc VS Code).
+  - Tạm dừng chương trình tại một điểm breakpoint.
+  - Sử dụng cửa sổ Variables để chỉnh sửa giá trị của biến.
+
+Câu hỏi 2: Bạn đã quan sát các thay đổi trong giá trị của biến bằng cách sử dụng các bước Debug ra sao?
+- Trả lời:
+  - Step Into: Tôi đã quan sát cách chương trình di chuyển vào bên trong một phương thức.
+  - Step Over: Tôi theo dõi các bước tiếp theo mà không đi sâu vào các phương thức.
+  - Step Return: Tôi kiểm tra giá trị trả về khi thoát khỏi một phương thức.
+
+5. Mục 9: String, StringBuffer và StringBuilder
+Câu hỏi 1: Bạn quan sát thấy sự khác biệt gì khi sử dụng + với String và khi dùng StringBuilder?
+- Trả lời:
+  - + với String:
+    - Tốn thời gian hơn vì mỗi lần nối tạo ra một đối tượng mới.
+    - Gây áp lực lớn lên bộ nhớ và bộ thu gom rác (Garbage Collector).
+  - StringBuilder:
+    - Hiệu quả hơn vì không tạo ra đối tượng mới mà sử dụng bộ nhớ đệm để nối chuỗi.
+    - Thích hợp cho các vòng lặp lớn hoặc xử lý nhiều chuỗi.
+
+Câu hỏi 2: Sử dụng StringBuilder tối ưu hơn trong trường hợp nào?
+- Trả lời:
+  StringBuilder tối ưu hơn khi:
+  - Nối nhiều chuỗi trong các vòng lặp.
+  - Thực hiện các thao tác xử lý chuỗi lớn.
+  - Khi hiệu năng và quản lý bộ nhớ là ưu tiên.
+
+6. Tổng kết các câu hỏi khác
+- Tôi đã cập nhật sơ đồ Use Case và Class Diagram để phản ánh các thay đổi trong bài tập, bao gồm:
+  - nbDigitalVideoDiscs và id trong lớp DigitalVideoDisc.
+  - Các phương thức addDVD và removeDVD trong lớp Store.
+  - Thêm các mối quan hệ giữa lớp Store, Cart, và DigitalVideoDisc.
