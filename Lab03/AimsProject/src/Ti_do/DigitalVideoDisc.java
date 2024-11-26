@@ -19,6 +19,7 @@ public class DigitalVideoDisc {
 		super();
 		this.title = title;
 		this.id = ++nbDigitalVideoDiscs; // Update class variable and assign id
+		
 	}
 
 	// Constructor by category, title and cost

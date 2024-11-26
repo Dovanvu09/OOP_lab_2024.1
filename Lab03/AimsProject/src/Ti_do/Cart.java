@@ -22,27 +22,8 @@ public class Cart {
         }
     }
 
-    // tạo một phương thức cùng tên nhưng khác chữ ki
-    public int addDigitalVideoDisc(DigitalVideoDisc[] dvdList){
-        
-    }
-
     // Hàm thêm đĩa vào giỏ hàng theo List với số lượng tùy ý
-    public int addDigitalVideoDisc(DigitalVideoDisc... dvdArray) {
-        int addCount = 0;
-        for (DigitalVideoDisc disc : dvdArray) {
-            if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
-                System.out.println("The cart is almost full. Can't add more discs.");
-                break;
-            } else {
-                itemsOrdered[qtyOrdered] = disc;
-                qtyOrdered++;
-                System.out.println("The DVD \"" + disc.getTitle() + "\" has been added!");
-                addCount++;
-            }
-        }
-        return addCount;
-    }
+
 
     // Hàm thêm 2 đĩa DVD
     public int addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
@@ -112,17 +93,17 @@ public class Cart {
     }
 
     // Hàm in giỏ hàng
-    public void print() {
-        StringBuilder output = new StringBuilder(
-                "*********************CART**************************\nOrdered items:\n");
+    public void printCart() {
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:");
         for (int i = 0; i < qtyOrdered; i++) {
-            output.append((i + 1) + ". [" + itemsOrdered[i].getTitle() + "] - [" + itemsOrdered[i].getCategory() + "] - ["
-                    + itemsOrdered[i].getDirector() + "] - [" + itemsOrdered[i].getLength() + "]: "
-                    + itemsOrdered[i].getCost() + " $\n");
+            DigitalVideoDisc disc = itemsOrdered[i];
+            System.out.println((i + 1) + ". DVD - " + disc.getTitle() + " - " 
+                + disc.getCategory() + " - " + disc.getDirector() + " - " 
+                + disc.getLength() + ": " + disc.getCost() + " $");
         }
-        output.append("Total cost: ").append(totalCost()).append(" $\n");
-        output.append("***************************************************\n");
-        System.out.println(output);
+        System.out.println("Total cost: " + totalCost() + " $");
+        System.out.println("***************************************************");
     }
 
     // Hàm tìm đĩa DVD theo ID
