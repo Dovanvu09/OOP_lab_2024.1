@@ -49,6 +49,7 @@ public class DigitalVideoDisc {
 		this.id = ++nbDigitalVideoDiscs; // Update class variable and assign id
 	}
 
+
 	// Các phương thức lấy dữ liệu của đĩa DVD
 
 	// Getter for title
@@ -100,5 +101,8 @@ public class DigitalVideoDisc {
 
 	public void setCost(float costSet) {
 		cost = costSet;
+	}
+	public static int getNbDigitalVideoDiscs(){
+		return nbDigitalVideoDiscs;
 	}
 }
