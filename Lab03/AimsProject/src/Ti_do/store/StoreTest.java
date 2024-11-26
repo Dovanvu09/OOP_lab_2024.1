@@ -1,4 +1,6 @@
-package Ti_do;
+package Ti_do.store;
+
+import Ti_do.media.DigitalVideoDisc;
 
 public class StoreTest {
     public static void main(String[] args) {

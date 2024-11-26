@@ -1,6 +1,8 @@
 // Đỗ Văn Vũ 20225956
 
-package Ti_do;
+package Ti_do.cart;
+
+import Ti_do.media.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20; // Số lượng tối đa đĩa DVD trong giỏ hàng
