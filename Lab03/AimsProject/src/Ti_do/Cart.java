@@ -93,40 +93,40 @@ public class Cart {
     }
 
     // Hàm in giỏ hàng
-    public void printCart() {
-        System.out.println("***********************CART***********************");
-        System.out.println("Ordered Items:");
-        for (int i = 0; i < qtyOrdered; i++) {
-            DigitalVideoDisc disc = itemsOrdered[i];
-            System.out.println((i + 1) + ". DVD - " + disc.getTitle() + " - " 
-                + disc.getCategory() + " - " + disc.getDirector() + " - " 
-                + disc.getLength() + ": " + disc.getCost() + " $");
-        }
-        System.out.println("Total cost: " + totalCost() + " $");
-        System.out.println("***************************************************");
+ // Method to print the cart details
+public void printCartDetails() {
+    System.out.println("***********************CART***********************");
+    System.out.println("Ordered Items:");
+    for (int i = 0; i < qtyOrdered; i++) {
+        System.out.println((i + 1) + ". " + itemsOrdered[i].toString());
     }
+    System.out.println("Total cost: " + totalCost() + " $");
+    System.out.println("***************************************************");
+}
 
-    // Hàm tìm đĩa DVD theo ID
-    public void searchById(int id) {
-        if (id <= 0 || id > qtyOrdered) {
-            System.out.println("No match found!");
-        } else {
-            DigitalVideoDisc disc = itemsOrdered[id - 1];
-            System.out.println("Result: [" + disc.getTitle() + "] - [" + disc.getCategory() + "] - [" 
-                    + disc.getDirector() + "] - [" + disc.getLength() + "]: " + disc.getCost() + " $\n");
+// Method to search DVDs by ID
+public void searchDVDById(int id) {
+    for (int i = 0; i < qtyOrdered; i++) {
+        if (itemsOrdered[i].getId() == id) {
+            System.out.println("DVD found: " + itemsOrdered[i].toString());
+            return;
         }
     }
+    System.out.println("No DVD found with ID: " + id);
+}
 
-    // Hàm tìm đĩa DVD theo tiêu đề
-    public void searchByTitle(String title) {
-        for (int i = 0; i < qtyOrdered; i++) {
-            if (itemsOrdered[i].getTitle().equalsIgnoreCase(title)) {
-                DigitalVideoDisc disc = itemsOrdered[i];
-                System.out.println("Result: [" + disc.getTitle() + "] - [" + disc.getCategory() + "] - [" 
-                        + disc.getDirector() + "] - [" + disc.getLength() + "]: " + disc.getCost() + " $\n");
-                return;
-            }
+// Method to search DVDs by title
+public void searchDVDByTitle(String title) {
+    boolean found = false;
+    for (int i = 0; i < qtyOrdered; i++) {
+        if (itemsOrdered[i].isMatch(title)) {
+            System.out.println("Match found: " + itemsOrdered[i].toString());
+            found = true;
         }
-        System.out.println("No match found!");
     }
+    if (!found) {
+        System.out.println("No match found for title: " + title);
+    }
+}
+
 }
