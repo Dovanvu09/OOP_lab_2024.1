@@ -1,6 +1,6 @@
 // Đỗ Văn Vũ 20225956
 
-package Ti_do;
+package Ti_do.media;
 
 public class DigitalVideoDisc {
 	// Khai báo thuộc tính

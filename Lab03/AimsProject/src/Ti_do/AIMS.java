@@ -2,6 +2,10 @@
 // Đỗ Văn Vũ 20225956
 
 package Ti_do;
+
+import Ti_do.cart.Cart;
+import Ti_do.media.DigitalVideoDisc;
+
 public class AIMS {
 	public static void main(String[] args) {
 		// Tạo giỏ hàng trống

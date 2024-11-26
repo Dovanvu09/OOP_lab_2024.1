@@ -1,6 +1,8 @@
-package Ti_do;
+package Ti_do.cart;
 
-public class TestPassingParameter {
+import Ti_do.media.DigitalVideoDisc;
+
+public class CarrtTest {
     public static void main(String[] args) {
         // Tạo 2 đối tượng DVD
         DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
