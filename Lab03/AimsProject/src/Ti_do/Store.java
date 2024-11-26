@@ -9,47 +9,49 @@ import java.util.LinkedList;
 
 
 public class Store {
-	private LinkedList<DigitalVideoDisc> itemsInStore = new LinkedList<DigitalVideoDisc>();
+    public static final int MAX_ITEMS = 50; // Số lượng tối đa DVD trong cửa hàng
+    private DigitalVideoDisc[] itemsInStore; // Mảng chứa danh sách DVD
+    private int qtyInStore; // Số lượng DVD hiện tại trong cửa hàng
 
-	private boolean checkDVD(DigitalVideoDisc disc) {
-		for (DigitalVideoDisc digitalVideoDisc : itemsInStore) {
-			if (digitalVideoDisc.equals(disc)) {
-				return true;
-			}
-		}
-		return false;
-	}
+    // Constructor
+    public Store() {
+        itemsInStore = new DigitalVideoDisc[MAX_ITEMS];
+        qtyInStore = 0;
+    }
 
-	public void removeDVD(DigitalVideoDisc disc) {
-		if (checkDVD(disc)) {
-			itemsInStore.remove(disc);
-			System.out.println(disc.getTitle() + " 've been deleted from the store !");
-		} else {
-			System.out.println("There is no " + disc.getTitle() + " in the store !");
-		}
-	}
+    // Phương thức thêm DVD vào cửa hàng
+    public void addDVD(DigitalVideoDisc dvd) {
+        if (qtyInStore >= MAX_ITEMS) {
+            System.out.println("The store is full. Cannot add more DVDs.");
+            return;
+        }
+        itemsInStore[qtyInStore] = dvd;
+        qtyInStore++;
+        System.out.println("The DVD \"" + dvd.getTitle() + "\" has been added to the store.");
+    }
 
-	public void addDVD(DigitalVideoDisc disc) {
-		if (!checkDVD(disc)) {
-			itemsInStore.add(disc);
-			System.out.println(disc.getTitle() + " 've been added to the store !");
-		} else {
-			System.out.println(disc.getTitle() + " 'already exists in the store !");
-		}
+    // Phương thức xóa DVD khỏi cửa hàng
+    public void removeDVD(DigitalVideoDisc dvd) {
+        for (int i = 0; i < qtyInStore; i++) {
+            if (itemsInStore[i].equals(dvd)) {
+                for (int j = i; j < qtyInStore - 1; j++) {
+                    itemsInStore[j] = itemsInStore[j + 1]; // Dịch các phần tử còn lại
+                }
+                itemsInStore[qtyInStore - 1] = null; // Xóa phần tử cuối
+                qtyInStore--;
+                System.out.println("The DVD \"" + dvd.getTitle() + "\" has been removed from the store.");
+                return;
+            }
+        }
+        System.out.println("The DVD \"" + dvd.getTitle() + "\" is not found in the store.");
+    }
 
-	}
-
-	@Override // Dinh nghia lai phuong thuc trong lop Object cua thu vien java.lang
-	public String toString() {
-		StringBuilder string = new StringBuilder("****************STORE***************\nitems in the store: \n");
-		if (itemsInStore.isEmpty())
-			string.append("There is no dvd in the store !\n");
-		else {
-			for (DigitalVideoDisc dvd : itemsInStore) {
-				string.append(dvd.getTitle() + " - " + dvd.getCost() + " $\n");
-			}
-		}
-		string.append("***************************************");
-		return string.toString();
-	}
+    // Phương thức in danh sách DVD trong cửa hàng
+    public void printStore() {
+        System.out.println("********************STORE********************");
+        for (int i = 0; i < qtyInStore; i++) {
+            System.out.println((i + 1) + ". " + itemsInStore[i].toString());
+        }
+        System.out.println("********************************************");
+    }
 }
