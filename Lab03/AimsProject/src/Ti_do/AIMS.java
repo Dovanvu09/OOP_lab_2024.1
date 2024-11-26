@@ -20,7 +20,6 @@ public class AIMS {
 		anOrder.addDigitalVideoDisc(dvd3);
 
 		// Kiểm tra khi chưa thực hiện hàm xoá
-		anOrder.print();
 
 		// Kiểm tra khi dã thực hiện hàm xoá
 		anOrder.removeDigitalVideoDisc(dvd2);
