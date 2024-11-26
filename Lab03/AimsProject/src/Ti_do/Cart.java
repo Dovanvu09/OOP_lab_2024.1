@@ -22,6 +22,11 @@ public class Cart {
         }
     }
 
+    // tạo một phương thức cùng tên nhưng khác chữ ki
+    public int addDigitalVideoDisc(DigitalVideoDisc[] dvdList){
+        
+    }
+
     // Hàm thêm đĩa vào giỏ hàng theo List với số lượng tùy ý
     public int addDigitalVideoDisc(DigitalVideoDisc... dvdArray) {
         int addCount = 0;
@@ -56,6 +61,23 @@ public class Cart {
             return 2; // Trả về số đĩa DVD đã thêm được
         }
     }
+    public int addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+        int addCount = 0;
+        for (DigitalVideoDisc disc : dvdList) {
+            if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
+                System.out.println("The cart is almost full. Can't add more discs.");
+                break;
+            } else {
+                itemsOrdered[qtyOrdered] = disc;
+                qtyOrdered++;
+                System.out.println("The DVD \"" + disc.getTitle() + "\" has been added!");
+                addCount++;
+            }
+        }
+        return addCount; // Trả về số lượng DVD đã thêm vào giỏ hàng
+    }
+    
+    
 
     // Hàm xóa đĩa DVD khỏi giỏ hàng
     public int removeDigitalVideoDisc(DigitalVideoDisc disc) {
