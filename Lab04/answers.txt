@@ -1,0 +1,32 @@
+answers.txt
+
+Câu 1: Mô tả sơ đồ lớp và các liên kết giữa các lớp trong hệ thống AIMS
+
+1. Lớp Aims: 
+   - Aims là lớp chính, chứa phương thức main() để khởi động chương trình và thực hiện các thao tác với các lớp khác trong hệ thống.
+   - Aims có liên kết Association với Cart, cho phép nó gọi các phương thức để quản lý giỏ hàng của người dùng.
+
+2. Lớp Cart: 
+   - Cart đại diện cho giỏ hàng của người dùng và chứa các đối tượng DigitalVideoDisc.
+   - Cart có liên kết Aggregation với DigitalVideoDisc, nghĩa là Cart chứa nhiều DVD, nhưng các DVD này có thể tồn tại độc lập ngoài Cart.
+   - Cart cũng có liên kết Composition với Order, nghĩa là Order sẽ chứa Cart khi đơn hàng được đặt. Khi Order bị xóa, Cart liên quan cũng sẽ bị xóa.
+
+3. Lớp DigitalVideoDisc: 
+   - DigitalVideoDisc đại diện cho từng đĩa DVD với các thuộc tính như tiêu đề, danh mục, giá, đạo diễn và thời lượng.
+   - DigitalVideoDisc không có liên kết ngược với Cart, nhưng Cart có thể quản lý nhiều đối tượng DigitalVideoDisc.
+
+4. Lớp Order:
+   - Order quản lý thông tin đơn hàng, bao gồm giỏ hàng (Cart), thông tin giao hàng, và thanh toán.
+   - Order có liên kết Composition với Cart, cho phép nó chứa và xử lý các sản phẩm trong giỏ hàng khi đơn hàng được đặt.
+
+Câu 2: Giải thích các loại liên kết trong sơ đồ
+
+- Association: Liên kết sử dụng một chiều giữa hai lớp. Ví dụ: Aims sử dụng Cart qua liên kết Association để quản lý giỏ hàng.
+- Aggregation: Liên kết tập hợp cho biết một lớp chứa nhiều đối tượng của lớp khác, nhưng các đối tượng đó có thể tồn tại độc lập. Ví dụ: Cart chứa nhiều DigitalVideoDisc nhưng DVD có thể tồn tại ngoài Cart.
+- Composition: Liên kết thành phần cho biết một lớp chứa đối tượng khác như một phần của nó. Khi lớp chứa bị xóa, các thành phần cũng sẽ bị xóa theo. Ví dụ: Order chứa Cart, và khi Order bị xóa thì Cart liên quan cũng sẽ không còn tồn tại.
+
+Câu 3: Giải thích lý do lựa chọn các loại liên kết
+
+- Association giữa Aims và Cart: Chọn Association vì Aims chỉ sử dụng Cart để quản lý giỏ hàng mà không có mối quan hệ sở hữu.
+- Aggregation giữa Cart và DigitalVideoDisc: Chọn Aggregation vì Cart chứa nhiều DigitalVideoDisc nhưng các DVD vẫn có thể tồn tại ngoài Cart.
+- Composition giữa Order và Cart: Chọn Composition vì Order chứa Cart khi đặt hàng, và Cart chỉ tồn tại trong ngữ cảnh của đơn hàng đó.
